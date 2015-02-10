@@ -1,0 +1,72 @@
+class,object:
+    MainWidget
+
+function:
+    void init_mainwidget();
+
+other variable:
+    widgetPosition
+
+
+images prefix:
+'*' : gif
+'#' : jpg
+'@' : png
+
+
+class:
+    ListMaker:          从images目录里面的文件获取列表，放入config目录
+
+    MeansDrager:        可拖动，有点击、移动、按下鼠标的信号(signal)的QLabel子类
+
+    MeansButton/
+    MeansSlider:        有鼠标进入，移出的信号(signal)的子类
+
+    MeansWarning:       弹出错误信息的框
+
+    MeansVideoWidget:   有双击全屏、单击暂停槽(slot)和点击、按下信号(signal)的QVideoWidget子类
+
+    ImgIndex:           目录、列表
+
+    ImgLabel:           放图片的框
+
+    MusicWidget:        音乐的框
+
+    VideoWidget:        视频的框
+
+directory structure:
+    ./                      (exe目录)
+    ./config/               (配置文件)
+    ./config/imgList.conf   (图片列表)
+    ./config/spList.conf    (特殊图片列表)
+    ./config/imgDic.conf    (图片名称)
+
+    ./src/                  (资源文件)
+    ./src/button/           (按钮资源文件)
+    ./src/scroll/           (滚动条资源文件)
+    ./src/slider/           (进度条资源文件)
+    ./src/open.png          (列表树展开图标)
+    ./src/closed.png        (列表树关闭图标)
+    ./src/musicprefix.mp3   (音乐前缀)
+
+    ./styles/                   (样式文件)
+    ./styles/imgindex.qss       (列表样式)
+    ./styles/meanswarning.qss   (警告框样式)
+    ./styles/musicwidget.qss    (音乐框样式)
+    ./styles/videowidget.qss    (视频框样式)
+
+    ./images/    (图片)
+    ./music/     (音乐)
+    ./video/     (视频)
+    ./special    (特殊图片)
+
+file name format:
+    images:     {index}.jpg
+                {index}.png
+                {index}.gif
+
+    music:      {index}_1.mp3   //原曲
+                {index}_2.mp3   //伴奏
+                {index}_3.mp3   //示例
+
+    video:      {index}.mp4
