@@ -51,16 +51,13 @@ private:
 
 signals:
     void select_img(QString fileName);
-
+    void play_music();
     void switch_off();
 
 public slots:
     void init_list();
 
 private slots:
-    void click_list_item(QListWidgetItem *item);
-    void click_tree_item(QTreeWidgetItem *item,int column);
-
     void load_level1(QListWidgetItem *);
     void load_level2(QListWidgetItem *);
 

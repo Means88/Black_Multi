@@ -783,6 +783,11 @@ void MusicWidget::refresh_message()
     MessageLabel->setText("状态:"+media+"("+state+")");
 }
 
+void MusicWidget::play_music()
+{
+    click_p_button();
+}
+
 ///interface
 void MusicWidget::pre_state_changed(QMediaPlayer::State state)
 {

@@ -38,6 +38,7 @@ void ImgIndex::create_object()
     connect(MainListWidget,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(load_level1(QListWidgetItem*)));
     connect(Level1ListWidget,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(load_level2(QListWidgetItem*)));
     connect(Level2ListWidget,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(click_list_item(QListWidgetItem*)));
+    connect(Level2ListWidget,SIGNAL(itemDoubleClicked(QListWidgetItem*)),this,SIGNAL(play_music()));
     connect(Level1ListWidget,SIGNAL(edit(QListWidgetItem*)),this,SLOT(edit_item(QListWidgetItem*)));
     connect(Level2ListWidget,SIGNAL(edit(QListWidgetItem*)),this,SLOT(edit_item(QListWidgetItem*)));
     connect(Level1ListWidget,SIGNAL(remove(QListWidgetItem*)),this,SLOT(remove_item(QListWidgetItem*)));
@@ -154,15 +155,6 @@ void ImgIndex::init_list()
 }
 
 ///slots
-void ImgIndex::click_tree_item(QTreeWidgetItem *item, int column)
-{
-    emit select_img(item->statusTip(column));
-}
-
-void ImgIndex::click_list_item(QListWidgetItem *item)
-{
-    emit select_img(item->statusTip());
-}
 
 void ImgIndex::load_level1(QListWidgetItem *item)
 {

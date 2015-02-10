@@ -42,7 +42,8 @@ void MainWidget::connect_objects()
 {
     connect(imgIndex,SIGNAL(select_img(QString)),imgLabel,SLOT(show_img(QString)));
     connect(imgIndex,SIGNAL(select_img(QString)),detailContainer->imgLabel,SLOT(show_img(QString)));
-    connect(imgIndex,SIGNAL(select_img(QString)),musicWidget,SLOT(set_file_name(QString)));
+    connect(imgIndex,SIGNAL(select_img(QString)),musicWidget,SLOT(set_file_name(QString)),Qt::QueuedConnection);
+    connect(imgIndex,SIGNAL(play_music()),musicWidget,SLOT(play_music()),Qt::QueuedConnection);
     connect(imgIndex,SIGNAL(select_img(QString)),videoWidget,SLOT(set_file_name(QString)));
     connect(detailContainer->imgLabel,SIGNAL(mouse_doubleclick()),imgLabel,SLOT(show()));
     connect(imgLabel,SIGNAL(mouse_doubleclick()),imgLabel,SLOT(hide()));

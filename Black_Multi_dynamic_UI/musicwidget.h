@@ -114,6 +114,7 @@ public slots:
     void lyric_off();
 
     void refresh_list();
+    void play_music();
 
 private slots:
 
