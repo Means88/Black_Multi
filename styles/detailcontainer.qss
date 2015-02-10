@@ -1,0 +1,38 @@
+﻿QWidget
+{
+	border:0px #00000000;
+}
+#MainWidget
+{
+	border-image:url(./src/ui/detail.png);
+}
+QTabWidget
+{
+	background-color:rgb(255,238,216);
+	background-color:rgb(255,238,216);
+}
+
+QWidget::pane
+{
+	border:0px #00000000;
+}
+
+QTabWidget::tab-bar
+{
+	subcontrol-position:center center;
+}
+
+QTabBar::tab
+{
+	width:82px;
+	height:20px;
+}
+
+QTabBar::tab:!selected
+{
+	background:url(./src/tab/tabbar.png);
+}
+QTabBar::tab:selected
+{
+	background:url(./src/tab/tabbar_selected.png);
+}

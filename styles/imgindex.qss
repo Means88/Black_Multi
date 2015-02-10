@@ -1,0 +1,154 @@
+﻿MeansDrager
+{
+	background: url(./src/ui/imgindex.png);
+}
+
+/*title*/
+#treeTitle
+{
+	background-color:rgba(20,20,35,0%);
+	color:#eb9429;
+}
+
+#showButton
+{
+	background-color:rgb(128,64,122);
+	color:white;
+	border-radius:2px;
+}
+
+#showButton:hover
+{
+	background-color:rgb(154,83,147);
+}
+
+#show2Button
+{
+	background-color:rgb(63,136,62);
+	color:white;
+	border-radius:2px;
+}
+
+#show2Button:hover
+{
+	background-color:rgb(64,157,62);
+}
+
+/*MainWidget*/
+#mainWidget
+{
+	
+}
+/*TreeWidget*/
+QTreeWidget
+{
+	background-color:rgb(255,238,216);
+	color:#fff;
+	font-size:12px;
+	border-color:rgb(251,234,211);
+}
+
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings  
+{
+    border-image: none;
+	image:url(./src/open.png);
+}
+
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:closed:has-children:has-siblings 
+{
+    border-image: none;
+	image:url(./src/closed.png);
+}
+
+QTreeWidget::item
+{
+	background-color:rgb(255,238,216);
+	padding:3px;
+}
+
+QTreeWidget::item:selected
+{
+	color:#eb9429;
+}
+
+/*ListWidget*/
+QListWidget
+{
+	background-color:rgb(255,238,216);
+	color:#fff;
+	border-radius:8px;
+	font-size:12px;
+	font-family:"宋体";
+}
+
+QListWidget::item
+{
+	border-width:0px;
+	background-color:rgb(255,238,216);
+	color:#888888;
+}
+
+QListWidget::item:selected
+{
+	background-color:rgb(255,238,216);
+	color:#eb9429;
+}
+
+/*ScroolBar*/
+QScrollBar:vertical
+{
+    width:7px;
+    background:url(./src/scroll/scrollbar.png);
+	margin:0px,0px,0px,0px;
+	padding-bottom:9px;
+	padding-top:9px;
+}
+QScrollBar::handle:vertical
+{
+    width:9px;
+    border-image:url(./src/scroll/handle.png);
+	height:14px;
+}
+QScrollBar::handle:vertical:hover
+{
+    width:9px;
+    border-image:url(./src/scroll/handle_hover.png);
+	height:14px;
+}
+QScrollBar::add-line:vertical  
+{
+    background-color:black;
+	height:9px;
+	width:7px;
+	border-image:url(./src/scroll/scrollbutton2.png);
+    subcontrol-position:bottom;
+}
+QScrollBar::sub-line:vertical  
+{
+    height:9px;
+	width:7px;
+    border-image:url(./src/scroll/scrollbutton1.png);
+    subcontrol-position:top;
+}
+QScrollBar::add-line:vertical:hover   
+{
+    height:9px;
+	width:7px;
+    border-image:url(./src/scroll/scrollbutton2_hover.png);
+    subcontrol-position:bottom;
+}
+QScrollBar::sub-line:vertical:hover 
+{
+    height:9px;
+	width:7px;
+    border-image:url(./src/scroll/scrollbutton1_hover.png);
+    subcontrol-position:top;
+}
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical 
+{
+    border-radius:4px;
+}
+
+/**/

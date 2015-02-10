@@ -1,0 +1,8 @@
+﻿QLabel
+{
+	background-color:rgba(30,30,40,30%);
+	color:white;
+	font-size:14px;
+	font-family:"华康少女文字W5(P)","微软雅黑","宋体";
+	border-radius:10px;
+}

@@ -1,0 +1,111 @@
+﻿MeansDrager
+{
+	background-image: url(src/ui/player.png);
+	color:#888888;
+}
+
+#PlayButton , #StopButton, #VoiceButton, #VideoButton, #SelectButton, #FullScreenButton, #BackButton
+{
+	background-color:rgba(0,0,0,0);
+}
+
+#MessageLabel
+{
+	color:#888888;
+	font-size:12px;
+	font-family:"宋体";
+}
+
+#TimeLabel
+{
+	color:#888888;
+}
+
+/*SeekSlider*/
+/*
+#SeekSlider::groove:horizontal 
+{
+}
+
+#SeekSlider::sub-page:horizontal 
+{
+	border-image: url(./src/slider/groove.png);
+}
+
+#SeekSlider::add-page:horizontal 
+{
+	border-image: url(./src/slider/add-page.png);
+}
+*//*
+#SeekSlider::handle:horizontal 
+{                      
+	background-image:url(./src/slider/handle.png);
+	height:9px;
+	min-width:14px;
+}
+
+#SeekSlider::handle:horizontal:hover 
+{
+	border-image: url(./src/slider/handle_hover.png);
+	height:9px;
+}
+*/
+#SeekSlider::groove:horizontal 
+{
+    border: 0px solid #999999;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #00000000, stop:1 #00000000);
+}
+
+#SeekSlider::sub-page:horizontal
+{
+	border-image:url(./src/slider/progress_fill.png);
+}
+
+#SeekSlider::handle:horizontal 
+{
+	border: 0px #00000000;
+	border-image: url(./src/slider/handle.png);
+    width: 15px;
+	margin-bottom:0px;
+	margin-top:1px;
+}
+
+#SeekSlider::handle:horizontal:hover
+{
+	border-image: url(./src/slider/handle_hover.png);
+}
+
+/*VolumeSlider*/
+#VolumeSlider::groove:horizontal 
+{
+	background: url(./src/slider/volume.png);
+	background-repeat: no-repeat;
+	height: 10px;
+}
+
+#VolumeSlider::add-page:horizontal 
+{
+	height: 10px;
+}
+
+#VolumeSlider::sub-page:horizontal 
+{
+	background: url(./src/slider/volume_sub-page.png);
+	height: 10px;
+}
+
+#VolumeSlider::handle:horizontal 
+{
+	background-color:rgba(0,0,0,0);
+    width: 12px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+#VolumeSlider::handle:horizontal:hover 
+{
+    width: 12px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+
+}
