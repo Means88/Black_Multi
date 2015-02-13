@@ -107,14 +107,13 @@ signals:
 
 public slots:
     void init_geometry();
-    void set_file_name(QString code);
+    void set_file_name(QString code, bool play);
     bool set_media_name(int id);
 
     void list_off();
     void lyric_off();
 
     void refresh_list();
-    void play_music();
 
 private slots:
 

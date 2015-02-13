@@ -100,12 +100,12 @@ void MeansDrager::mousePressEvent(QMouseEvent *event)
                 positionList.push_back(QPoint(0,0));
             }
         }
-         event->accept();
     }
     if(single)
         raise();
     else
         ((QWidget*)parent())->raise();
+    event->accept();
 }
 
 void MeansDrager::mouseMoveEvent(QMouseEvent *event)
@@ -131,8 +131,8 @@ void MeansDrager::mouseMoveEvent(QMouseEvent *event)
                 objectList[i]->move(event->globalPos()-positionList[i]);
             }
         }
-         event->accept();
     }
+    event->accept();
 }
 
 void MeansDrager::mouseReleaseEvent(QMouseEvent *event)

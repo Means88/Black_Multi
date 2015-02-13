@@ -214,3 +214,25 @@ void MeansListWidget::remove_slot()
 {
     emit remove(contextItem);
 }
+
+///MeansTimer
+MeansTimer::MeansTimer(QObject *parent) :
+    QTimer(parent)
+{
+}
+
+MeansTimer::MeansTimer(QString msg, QObject *parent) :
+    QTimer(parent)
+{
+    this->msg=msg;
+}
+
+void MeansTimer::set_message(QString msg)
+{
+    this->msg=msg;
+}
+
+QString MeansTimer::message()
+{
+    return msg;
+}

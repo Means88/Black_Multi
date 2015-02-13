@@ -13,6 +13,7 @@
 #include <QWidget>
 #include <QVector>
 #include <QIcon>
+#include <QTimer>
 #include <QPushButton>
 #include <QPropertyAnimation>
 #include <QListWidget>
@@ -40,6 +41,7 @@ private:
     State mainState;
     MeansCloseButton *CloseButton;
     ListMaker listMaker;
+    MeansTimer *time;
 
     bool mainShow;
 
@@ -48,10 +50,10 @@ private:
     void init_this();
     void init_title();
     void init_main();
+    void init_time();
 
 signals:
-    void select_img(QString fileName);
-    void play_music();
+    void select_img(QString fileName, bool play);
     void switch_off();
 
 public slots:
@@ -60,6 +62,9 @@ public slots:
 private slots:
     void load_level1(QListWidgetItem *);
     void load_level2(QListWidgetItem *);
+    void click_img(QListWidgetItem *);
+    void double_click_img(QListWidgetItem *);
+    void time_out();
 
     void edit_item(QListWidgetItem *);
     void remove_item(QListWidgetItem *);

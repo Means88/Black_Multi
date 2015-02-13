@@ -122,4 +122,18 @@ private slots:
     void remove_slot();
 };
 
+///MeansTimer
+class MeansTimer : public QTimer
+{
+    Q_OBJECT
+public:
+    explicit MeansTimer(QObject *parent = 0);
+    explicit MeansTimer(QString msg, QObject *parent = 0);
+
+    void set_message(QString msg);
+    QString message();
+private:
+    QString msg;
+};
+
 #endif // MEANSBUTTON_H

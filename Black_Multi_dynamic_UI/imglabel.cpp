@@ -112,9 +112,9 @@ void ImgLabel::wheelEvent(QWheelEvent *event)
     int delta=event->delta();
     if(rollable)
     {
-        if(!((scaleRate<=30 && delta>0)||(scaleRate>=190 &&delta<0)))
+        if(!((scaleRate<=30 && delta<0)||(scaleRate>=190 && delta>0)))
         {
-            scaleRate=std::max(scaleRate-event->delta()/12,30);
+            scaleRate=std::max(scaleRate+delta/12,30);
             int w=width(),h=height();
             int w2=parentHeight()*scaleRate*w/(100*h),h2=parentHeight()*scaleRate/100;
             int x2=x()-(w2-w)/2,y2=y()-(h2-h)/2;

@@ -32,10 +32,10 @@ QVector<int> ListMaker::get_list(int level, QString parent)
         case 0:
             break;
         case 1:
-            flag = flag&&(object["parent0"].toString()==parent);
+            flag = flag&&(object["parent0"].toString()==parent || parent=="-1");
             break;
         case 2:
-            flag = flag&&(object["parent1"].toString()==parent);
+            flag = flag&&(object["parent1"].toString()==parent || parent=="-2");
         default:
             break;
         }
@@ -60,4 +60,41 @@ QJsonObject ListMaker::object(QString code)
             return playList[i].toObject();
     }
     return QJsonObject();
+}
+
+void ListMaker::save_list()
+{
+    QFile file("./config/list.jel");
+    file.open(QIODevice::WriteOnly);
+    QByteArray data=QString(QJsonDocument(playList).toJson()).toUtf8().toPercentEncoding();
+    file.write(data);
+    file.close();
+}
+
+void ListMaker::list_edit(QString code, QString name)
+{
+    for(int i=0; i<playList.size(); i++)
+    {
+        if(playList[i].toObject()["code"].toString()==code)
+        {
+            QJsonObject object=playList[i].toObject();
+            object["name"]=name;
+            playList.replace(i,object);
+            break;
+        }
+    }
+    save_list();
+}
+
+void ListMaker::list_remove(QString code)
+{
+    for(int i=0; i<playList.size(); i++)
+    {
+        if(playList[i].toObject()["code"]==code)
+        {
+            playList.removeAt(i);
+            break;
+        }
+    }
+    save_list();
 }

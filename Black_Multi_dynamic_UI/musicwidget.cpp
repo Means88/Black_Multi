@@ -375,7 +375,7 @@ void MusicWidget::init_geometry()
     //VideoButton->setGeometry(132,103,45,45);
 }
 
-void MusicWidget::set_file_name(QString code)
+void MusicWidget::set_file_name(QString code, bool play)
 {
     QJsonObject object=listMaker.object(code);
     fileDir=QString("./MultiData/[%1] %2/").arg(code).arg(object["name"].toString());
@@ -384,6 +384,9 @@ void MusicWidget::set_file_name(QString code)
     fileName[2]=object["music3"].toString();
 
     set_media_name(1);
+
+    if(play)
+        click_p_button();
 }
 
 bool MusicWidget::set_media_name(int id)
@@ -458,10 +461,13 @@ void MusicWidget::click_p_button()
         mPlayer->pause();
     else if(prePlayer->state()==QMediaPlayer::PlayingState)
         prePlayer->pause();
-    else if(isbegin && SeekSlider->value()<=15)
-        prePlayer->play();
-    else
-        mPlayer->play();
+    else if(mPlayer->mediaStatus()==QMediaPlayer::LoadedMedia || mPlayer->mediaStatus()==QMediaPlayer::LoadingMedia)
+    {
+        if(isbegin && SeekSlider->value()<=15)
+            prePlayer->play();
+        else
+            mPlayer->play();
+    }
 }
 
 void MusicWidget::enter_p_button()
@@ -781,11 +787,6 @@ void MusicWidget::refresh_message()
     }
 
     MessageLabel->setText("状态:"+media+"("+state+")");
-}
-
-void MusicWidget::play_music()
-{
-    click_p_button();
 }
 
 ///interface

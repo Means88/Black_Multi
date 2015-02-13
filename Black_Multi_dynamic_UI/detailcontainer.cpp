@@ -6,7 +6,9 @@ DetailContainer::DetailContainer(QWidget *parent) :
     MeansAdsorpent(parent)
 {
     resize(476,300);
+    //setMinimumSize(476,300);
     setWindowFlags(Qt::FramelessWindowHint | Qt::SubWindow);
+
     //setAttribute(Qt::WA_TranslucentBackground);
 
     init_mainwidget();
@@ -15,6 +17,11 @@ DetailContainer::DetailContainer(QWidget *parent) :
     init_videotab();
     init_thirdtab();
     init_closebutton();
+
+    //SizeGrip=new QSizeGrip(this);
+    //SizeGrip->setVisible(true);
+    //SizeGrip->resize(25,25);
+    //SizeGrip->move(451,275);
 
     QFile style("./styles/detailcontainer.qss");
     style.open(QIODevice::ReadOnly);

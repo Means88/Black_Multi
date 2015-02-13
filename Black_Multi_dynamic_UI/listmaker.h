@@ -28,8 +28,13 @@ public:
     QVector<int> get_list(int level,QString parent=QString());
     QJsonObject object(int index);
     QJsonObject object(QString code);
+    void list_edit(QString code,QString name);
+    void list_remove(QString code);
+
 private:
     QJsonArray playList;
+
+    void save_list();
 };
 
 #endif // LISTMAKER_H

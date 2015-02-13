@@ -3,6 +3,7 @@
 
 #include <QTabWidget>
 #include <QTabBar>
+#include <QSizeGrip>
 #include "meansdrager.h"
 #include "meansbutton.h"
 #include "meansadsorpent.h"
@@ -19,6 +20,7 @@ public:
     ImgLabel *imgLabel;
 private:
     MeansCloseButton *CloseButton;
+    //QSizeGrip *SizeGrip;
 
     void init_mainwidget();
     void init_tabwidget();
