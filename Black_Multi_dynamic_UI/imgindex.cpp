@@ -142,6 +142,7 @@ void ImgIndex::init_main()
 */
 }
 
+/// init/refresh list
 void ImgIndex::init_list()
 {
     listMaker.read_list("./config/list.jel");
@@ -174,6 +175,7 @@ void ImgIndex::init_time()
 
 ///slots
 
+///load level1 list when click main(level0) list
 void ImgIndex::load_level1(QListWidgetItem *item)
 {
     Level1ListWidget->clear();
@@ -196,6 +198,7 @@ void ImgIndex::load_level1(QListWidgetItem *item)
     emit select_img(item->statusTip(),false);
 }
 
+///load level2 list when click level1 list
 void ImgIndex::load_level2(QListWidgetItem *item)
 {
     Level2ListWidget->clear();
@@ -219,6 +222,7 @@ void ImgIndex::load_level2(QListWidgetItem *item)
     emit select_img(item->statusTip(),false);
 }
 
+///click to show image
 void ImgIndex::click_img(QListWidgetItem *item)
 {
     if(item!=NULL)
@@ -228,6 +232,7 @@ void ImgIndex::click_img(QListWidgetItem *item)
     }
 }
 
+///double click to show image & play music
 void ImgIndex::double_click_img(QListWidgetItem *item)
 {
     time->stop();
@@ -240,6 +245,7 @@ void ImgIndex::time_out()
     emit select_img(time->message(),false);
 }
 
+///edit item's name in list
 void ImgIndex::edit_item(QListWidgetItem *item)
 {
     if(item->statusTip()=="-1" || item->statusTip()=="-2")
@@ -264,6 +270,7 @@ void ImgIndex::edit_item(QListWidgetItem *item)
     }
 }
 
+///remove item from list
 void ImgIndex::remove_item(QListWidgetItem *item)
 {
     if(item->statusTip()=="-1" || item->statusTip()=="-2")

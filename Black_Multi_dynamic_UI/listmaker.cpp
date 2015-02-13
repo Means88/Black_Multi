@@ -10,6 +10,7 @@ ListMaker::ListMaker(QString fileName)
     read_list(fileName);
 }
 
+///read list from file
 void ListMaker::read_list(QString fileName)
 {
     QFile file(fileName);
@@ -18,6 +19,7 @@ void ListMaker::read_list(QString fileName)
     file.close();
 }
 
+///get sub-list's index by parent
 QVector<int> ListMaker::get_list(int level, QString parent)
 {
     QVector<int> list;
@@ -47,11 +49,13 @@ QVector<int> ListMaker::get_list(int level, QString parent)
     return list;
 }
 
+///return object by index
 QJsonObject ListMaker::object(int index)
 {
     return playList[index].toObject();
 }
 
+///return object by code
 QJsonObject ListMaker::object(QString code)
 {
     for(int i=0; i<playList.size(); i++)
@@ -62,6 +66,7 @@ QJsonObject ListMaker::object(QString code)
     return QJsonObject();
 }
 
+///write list to file
 void ListMaker::save_list()
 {
     QFile file("./config/list.jel");
@@ -71,6 +76,7 @@ void ListMaker::save_list()
     file.close();
 }
 
+///change name of an object
 void ListMaker::list_edit(QString code, QString name)
 {
     for(int i=0; i<playList.size(); i++)
@@ -86,6 +92,7 @@ void ListMaker::list_edit(QString code, QString name)
     save_list();
 }
 
+///remove an object from list
 void ListMaker::list_remove(QString code)
 {
     for(int i=0; i<playList.size(); i++)

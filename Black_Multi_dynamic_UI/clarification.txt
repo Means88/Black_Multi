@@ -55,18 +55,4 @@ directory structure:
     ./styles/musicwidget.qss    (音乐框样式)
     ./styles/videowidget.qss    (视频框样式)
 
-    ./images/    (图片)
-    ./music/     (音乐)
-    ./video/     (视频)
-    ./special    (特殊图片)
-
-file name format:
-    images:     {index}.jpg
-                {index}.png
-                {index}.gif
-
-    music:      {index}_1.mp3   //原曲
-                {index}_2.mp3   //伴奏
-                {index}_3.mp3   //示例
-
-    video:      {index}.mp4
+    ./MultiData             (文档资源文件)

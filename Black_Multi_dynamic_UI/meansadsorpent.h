@@ -1,3 +1,6 @@
+/**
+  *  The Widget adsopent automatically
+  */
 #ifndef MEANSADSORPENT_H
 #define MEANSADSORPENT_H
 

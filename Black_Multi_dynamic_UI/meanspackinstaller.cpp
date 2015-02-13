@@ -24,6 +24,7 @@ bool MeansPackInstaller::setfile(QString fileName)
     return false;
 }
 
+///  ./[x2jqlc6] W.je  -->  ./MultiData/[x2jqlc6] W/
 bool MeansPackInstaller::unpack()
 {   
     QFile file(QString(packName).replace('\\','/'));
@@ -40,6 +41,7 @@ bool MeansPackInstaller::unpack()
     return true;
 }
 
+/// add infomation to list.jel
 bool MeansPackInstaller::install()
 {
     QFile listFile("./config/list.jel");

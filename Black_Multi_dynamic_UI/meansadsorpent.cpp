@@ -16,11 +16,13 @@ MeansAdsorpent::~MeansAdsorpent()
 
 }
 
+///set musicWidget to adsorpent
 void MeansAdsorpent::set_music(MusicInterface *musicWidget)
 {
     this->musicWidget=musicWidget;
 }
 
+///set the direction(s) to adsorpent
 void MeansAdsorpent::set_mode(Mode mode)
 {
     thismode=mode;
@@ -32,6 +34,8 @@ MeansAdsorpent::Mode MeansAdsorpent::mode()
 }
 
 ///private
+
+/// judge if it is near from musicWidget
 MeansAdsorpent::Mode MeansAdsorpent::isNear()
 {
     if(musicWidget==NULL)
@@ -60,6 +64,7 @@ MeansAdsorpent::Mode MeansAdsorpent::isNear()
     return result;
 }
 
+///
 void MeansAdsorpent::adsopent(Mode mode)
 {
     if(musicWidget==NULL)
