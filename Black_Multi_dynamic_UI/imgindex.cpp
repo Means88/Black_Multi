@@ -39,8 +39,12 @@ void ImgIndex::create_object()
     connect(Level1ListWidget,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(load_level2(QListWidgetItem*)));
     connect(Level2ListWidget,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(click_img(QListWidgetItem*)),Qt::DirectConnection);
     connect(Level2ListWidget,SIGNAL(itemDoubleClicked(QListWidgetItem*)),this,SLOT(double_click_img(QListWidgetItem*)),Qt::DirectConnection);
+
+    connect(MainListWidget,SIGNAL(edit(QListWidgetItem*)),this,SLOT(edit_item(QListWidgetItem*)));
     connect(Level1ListWidget,SIGNAL(edit(QListWidgetItem*)),this,SLOT(edit_item(QListWidgetItem*)));
     connect(Level2ListWidget,SIGNAL(edit(QListWidgetItem*)),this,SLOT(edit_item(QListWidgetItem*)));
+
+    connect(MainListWidget,SIGNAL(remove(QListWidgetItem*)),this,SLOT(remove_item(QListWidgetItem*)));
     connect(Level1ListWidget,SIGNAL(remove(QListWidgetItem*)),this,SLOT(remove_item(QListWidgetItem*)));
     connect(Level2ListWidget,SIGNAL(remove(QListWidgetItem*)),this,SLOT(remove_item(QListWidgetItem*)));
 
@@ -154,10 +158,10 @@ void ImgIndex::init_list()
     for(int i=0; i<list.size(); i++)
     {
         QJsonObject object=listMaker.object(list[i]);
-        QListWidgetItem *item=new QListWidgetItem(object["name"].toString());
-        item->setSizeHint(QSize(50,13));
-        item->setStatusTip(object["code"].toString());
-        MainListWidget->addItem(item);
+        QListWidgetItem *itm=new QListWidgetItem(object["name"].toString());
+        itm->setSizeHint(QSize(50,13));
+        itm->setStatusTip(object["code"].toString());
+        MainListWidget->addItem(itm);
     }
 }
 
@@ -238,6 +242,9 @@ void ImgIndex::time_out()
 
 void ImgIndex::edit_item(QListWidgetItem *item)
 {
+    if(item->statusTip()=="-1" || item->statusTip()=="-2")
+        return;
+
     QInputDialog *dialog=new QInputDialog;
     if(item->listWidget()==Level2ListWidget)
         dialog->setTextValue(item->text().section(' ',1));
@@ -259,6 +266,9 @@ void ImgIndex::edit_item(QListWidgetItem *item)
 
 void ImgIndex::remove_item(QListWidgetItem *item)
 {
+    if(item->statusTip()=="-1" || item->statusTip()=="-2")
+        return;
+
     QMessageBox *dialog=new QMessageBox;
     dialog->setIcon(QMessageBox::NoIcon);
     dialog->setText("确定要删除吗");
