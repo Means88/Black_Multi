@@ -6,7 +6,6 @@
 #define IMGLABEL_H
 
 #include "meansdrager.h"
-#include "meanswaring.h"
 #include "listmaker.h"
 #include <QMovie>
 #include <QPixmap>

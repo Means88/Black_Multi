@@ -19,11 +19,12 @@ SOURCES += main.cpp\
     listmaker.cpp \
     meansbutton.cpp \
     videowidget.cpp \
-    meanswaring.cpp \
     detailcontainer.cpp \
     meansadsorpent.cpp \
     meanspackinstaller.cpp \
-    meanssingleapplication.cpp
+    meanssingleapplication.cpp \
+    meansmusic.cpp \
+    meansturner.cpp
 
 HEADERS  += mainwidget.h \
     meansdrager.h \
@@ -33,11 +34,12 @@ HEADERS  += mainwidget.h \
     listmaker.h \
     meansbutton.h \
     videowidget.h \
-    meanswaring.h \
     detailcontainer.h \
     meansadsorpent.h \
     meanspackinstaller.h \
-    meanssingleapplication.h
+    meanssingleapplication.h \
+    meansmusic.h \
+    meansturner.h
 
 OTHER_FILES += \
     clarification.txt \

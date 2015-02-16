@@ -23,6 +23,12 @@ VideoWidget::VideoWidget(ImgIndex *imgIndex,MusicWidget *musicWidget, QWidget *p
     set_friend(musicWidget,imgIndex);
 }
 
+VideoWidget::~VideoWidget()
+{
+    delete vPlayer;
+    delete VideoOut;
+}
+
 void VideoWidget::set_friend(MusicWidget *musicWidget, ImgIndex *imgIndex)
 {
     connect(musicWidget,SIGNAL(set_position(int)),this,SLOT(set_media_position(int)));
@@ -105,6 +111,11 @@ MeansVideoWidget::MeansVideoWidget(QWidget *parent) :
     time=new QTimer(this);
     time->setSingleShot(true);
     setStyleSheet("background-color:#000;");
+}
+
+MeansVideoWidget::~MeansVideoWidget()
+{
+    delete time;
 }
 
 void MeansVideoWidget::mouseDoubleClickEvent(QMouseEvent *event)

@@ -8,7 +8,6 @@
 #include "listmaker.h"
 #include "meansdrager.h"
 #include "meansbutton.h"
-#include "meanswaring.h"
 #include <QButtonGroup>
 #include <QMediaPlayer>
 #include <QPushButton>
@@ -25,6 +24,8 @@ class MusicWidget : public QWidget
     Q_OBJECT
 public:
     explicit MusicWidget(QWidget *parent = 0);
+    virtual ~MusicWidget();
+
     void set_dragable(bool);
     void set_object(QWidget*);
     void set_object(QList<QWidget*>);
@@ -67,6 +68,7 @@ private:
     QIcon volume_normal,volume_hover,mute_normal,mute_hover;
 
     QString musicName[3];
+    QString currentFileCode;
     int currentMediaId;
 
     bool isbegin; ///prefix

@@ -14,7 +14,6 @@
 #include <QPaintEngine>
 #include <QPalette>
 #include <QTimer>
-#include "meanswaring.h"
 #include "musicwidget.h"
 #include "imgindex.h"
 #include "listmaker.h"
@@ -25,6 +24,7 @@ class VideoWidget : public QWidget
     Q_OBJECT
 public:
     explicit VideoWidget(ImgIndex *imgIndex, MusicWidget *musicWidget, QWidget *parent = 0);
+    virtual ~VideoWidget();
 
 protected:
 
@@ -32,7 +32,6 @@ private:
     int px,py;
     QMediaPlayer *vPlayer;
     MeansVideoWidget *VideoOut;
-    MeansDrager *Title;
 
     MusicWidget *musicWidget;
     ImgIndex *imgIndex;
@@ -58,6 +57,7 @@ class MeansVideoWidget : public QVideoWidget
     Q_OBJECT
 public:
     explicit MeansVideoWidget(QWidget *parent = 0);
+    virtual ~MeansVideoWidget();
 
     void set_player(MusicWidget *);
 protected:

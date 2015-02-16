@@ -36,6 +36,11 @@ MainWidget::MainWidget(QWidget *parent) :
 
 MainWidget::~MainWidget()
 {
+    delete imgIndex;
+    delete musicWidget;
+    delete detailContainer;
+    delete videoWidget;
+    delete imgLabel;
 }
 
 void MainWidget::connect_objects()

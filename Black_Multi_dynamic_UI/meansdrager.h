@@ -18,7 +18,7 @@ class MeansDrager : public QLabel
     Q_OBJECT
 public:
     explicit MeansDrager(QWidget *parent = 0);
-    ~MeansDrager();
+    virtual ~MeansDrager();
 
     bool is_single();
     bool is_dragable();

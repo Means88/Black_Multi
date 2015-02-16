@@ -13,7 +13,7 @@ MeansAdsorpent::MeansAdsorpent(QWidget *parent) :
 
 MeansAdsorpent::~MeansAdsorpent()
 {
-
+    delete MainWidget;
 }
 
 ///set musicWidget to adsorpent

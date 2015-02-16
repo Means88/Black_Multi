@@ -1,9 +1,14 @@
 #include "meansbutton.h"
 #include <QApplication>
+#include <QMessageBox>
 
 ///button
 MeansButton::MeansButton(QWidget *parent) :
     QPushButton(parent)
+{
+}
+
+MeansButton::~MeansButton()
 {
 }
 
@@ -40,7 +45,13 @@ MeansSlider::MeansSlider(QWidget *parent) :
     time=new QTimer(this);
     time->setSingleShot(true);
     handleWidth=0;
+    setRange(0,1);
     connect(time,SIGNAL(timeout()),this,SLOT(time_out()));
+}
+
+MeansSlider::~MeansSlider()
+{
+    delete time;
 }
 
 void MeansSlider::set_handle_width(int width)
@@ -82,19 +93,27 @@ void MeansSlider::mousePressEvent(QMouseEvent *event)
     set_position(event->pos());
     pressed=true;
     emit select_value(qint64(value()));
+    emit mouse_press();
 }
 
 void MeansSlider::mouseMoveEvent(QMouseEvent *event)
 {
     QSlider::mouseMoveEvent(event);
     if(pressed)
+    {
         set_position(event->pos());
+        emit select_value(qint64(value()));
+        emit mouse_drag();
+    }
+    emit mouse_move();
 }
 
 void MeansSlider::mouseReleaseEvent(QMouseEvent *event)
 {
     QSlider::mouseReleaseEvent(event);
     pressed=false;
+    emit mouse_release();
+    //QMessageBox::information(this,"",itoa(maximum(),new char[10],10));
 }
 
 bool MeansSlider::is_entered()
@@ -132,6 +151,10 @@ MeansCloseButton::MeansCloseButton(QWidget *parent) :
     connect(this,SIGNAL(mouse_leave()),this,SLOT(leave_c_button()));
     connect(this,SIGNAL(mouse_press()),this,SLOT(press_c_button()));
     connect(this,SIGNAL(mouse_release()),this,SLOT(release_s_button()));
+}
+
+MeansCloseButton::~MeansCloseButton()
+{
 }
 
 MeansCloseButton::Mode MeansCloseButton::mode()
@@ -193,6 +216,12 @@ MeansListWidget::MeansListWidget(QWidget *parent) :
     connect(removeAction,SIGNAL(triggered()),this,SLOT(remove_slot()));
 }
 
+MeansListWidget::~MeansListWidget()
+{
+    delete editAction;
+    delete removeAction;
+}
+
 void MeansListWidget::contextMenuEvent(QContextMenuEvent *event)
 {
     contextItem=this->itemAt(event->pos());
@@ -218,6 +247,10 @@ void MeansListWidget::remove_slot()
 ///MeansTimer
 MeansTimer::MeansTimer(QObject *parent) :
     QTimer(parent)
+{
+}
+
+MeansTimer::~MeansTimer()
 {
 }
 

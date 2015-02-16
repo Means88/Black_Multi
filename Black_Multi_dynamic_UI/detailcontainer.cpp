@@ -15,7 +15,7 @@ DetailContainer::DetailContainer(QWidget *parent) :
     init_tabwidget();
     init_imgtab();
     init_videotab();
-    init_thirdtab();
+    init_turntab();
     init_closebutton();
 
     //SizeGrip=new QSizeGrip(this);
@@ -66,12 +66,15 @@ void DetailContainer::init_videotab()
     VideoTab=new QLabel(TabWidget);
     VideoTab->resize(456,265);
     TabWidget->addTab(VideoTab,"视频");
+    VideoTab->setStyleSheet("background-color:#000;");
 }
 
-void DetailContainer::init_thirdtab()
+void DetailContainer::init_turntab()
 {
-    ThirdTab=new QLabel(TabWidget);
-    TabWidget->addTab(ThirdTab,"");
+    TurnTab=new QLabel(TabWidget);
+    TurnTab->resize(456,265);
+    MusicTuner=new MeansTurner(TurnTab);
+    TabWidget->addTab(TurnTab,"转调");
 }
 
 void DetailContainer::init_closebutton()

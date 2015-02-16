@@ -7,6 +7,7 @@
 #include "meansdrager.h"
 #include "meansbutton.h"
 #include "meansadsorpent.h"
+#include "meansturner.h"
 #include "imglabel.h"
 
 class DetailContainer : public MeansAdsorpent
@@ -16,17 +17,18 @@ public:
     explicit DetailContainer(QWidget *parent = 0);
 
     QTabWidget *TabWidget;
-    QLabel *VideoTab,*ThirdTab,*ImgTab;
+    QLabel *VideoTab,*TurnTab,*ImgTab;
     ImgLabel *imgLabel;
 private:
     MeansCloseButton *CloseButton;
+    MeansTurner *MusicTuner;
     //QSizeGrip *SizeGrip;
 
     void init_mainwidget();
     void init_tabwidget();
     void init_imgtab();
     void init_videotab();
-    void init_thirdtab();
+    void init_turntab();
     void init_closebutton();
 
 signals:

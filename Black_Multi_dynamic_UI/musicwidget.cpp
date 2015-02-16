@@ -23,6 +23,30 @@ MusicWidget::MusicWidget(QWidget *parent) :
     init_geometry();
 }
 
+MusicWidget::~MusicWidget()
+{
+    delete MainWidget;
+    delete mPlayer;
+    delete PlayButton;
+    delete StopButton;
+    delete VoiceButton;
+    delete FullScreenButton;
+    delete BackButton;
+    delete MinimizeButton;
+    delete MinimodeButton;
+    delete CloseButton;
+    delete PrevButton;
+    delete NextButton;
+    delete ListButton;
+    delete LyricButton;
+    delete VolumeSlider;
+    delete SeekSlider;
+    delete MessageLabel;
+    delete prePlayer;
+    for(int i=0;i<5;i++)
+        delete TimeNum[i];
+}
+
 MusicInterface *MusicWidget::interface()
 {
     return (MusicInterface*)(this);
@@ -161,7 +185,6 @@ void MusicWidget::init_slider()
     SeekSlider->set_handle_width(14);
     connect(mPlayer,SIGNAL(durationChanged(qint64)),this,SLOT(seek_set_range(qint64)));
     connect(mPlayer,SIGNAL(positionChanged(qint64)),this,SLOT(seek_set_value(qint64)));
-    connect(SeekSlider,SIGNAL(sliderMoved(int)),this,SLOT(player_set_position()));
     connect(SeekSlider,SIGNAL(select_value(qint64)),mPlayer,SLOT(setPosition(qint64)));
     connect(SeekSlider,SIGNAL(select_value(qint64)),this,SLOT(player_set_position()));
 
@@ -337,7 +360,7 @@ void MusicWidget::changeEvent(QEvent *event)
 
 void MusicWidget::refresh_time()
 {
-    QString time(QTime(0,mPlayer->position()/60000,mPlayer->position()%60000/1000,0).toString("mm:ss"));
+    QString time(QTime(0,SeekSlider->value()/60000,SeekSlider->value()%60000/1000,0).toString("mm:ss"));
     for(int i=0;i<5;i++)
     {
         if(i==2)
@@ -377,16 +400,20 @@ void MusicWidget::init_geometry()
 
 void MusicWidget::set_file_name(QString code, bool play)
 {
-    QJsonObject object=listMaker.object(code);
-    fileDir=QString("./MultiData/[%1] %2/").arg(code).arg(object["name"].toString());
-    fileName[0]=object["music1"].toString();
-    fileName[1]=object["music2"].toString();
-    fileName[2]=object["music3"].toString();
-
-    set_media_name(1);
+    if(code!=currentFileCode)
+    {
+        QJsonObject object=listMaker.object(code);
+        fileDir=QString("./MultiData/[%1] %2/").arg(code).arg(object["name"].toString());
+        fileName[0]=object["music1"].toString();
+        fileName[1]=object["music2"].toString();
+        fileName[2]=object["music3"].toString();
+        set_media_name(1);
+        currentFileCode=code;
+    }
 
     if(play)
         click_p_button();
+
 }
 
 bool MusicWidget::set_media_name(int id)

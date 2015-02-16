@@ -15,7 +15,7 @@ public:
     enum Mode{NoMode=0,TopMode=1,BottomMode=2,LeftMode=4,RightMode=8};
 
     explicit MeansAdsorpent(QWidget *parent = 0);
-    ~MeansAdsorpent();
+    virtual ~MeansAdsorpent();
 
     void set_music(MusicInterface*);
     void set_mode(Mode mode);

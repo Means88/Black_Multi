@@ -23,6 +23,7 @@ class MeansButton : public QPushButton
     Q_OBJECT
 public:
     explicit MeansButton(QWidget *parent = 0);
+    virtual ~MeansButton();
 
 protected:
     void enterEvent(QEvent *event);
@@ -45,6 +46,7 @@ class MeansSlider : public QSlider
     Q_OBJECT
 public:
     explicit MeansSlider(QWidget *parent = 0);
+    virtual ~MeansSlider();
 
     bool is_entered();
     void time_begin();
@@ -65,6 +67,10 @@ signals:
     void mouse_enter();
     void mouse_leave();
     void select_value(qint64);
+    void mouse_press();
+    void mouse_move();
+    void mouse_release();
+    void mouse_drag();
 
 public slots:
     void time_out();
@@ -76,6 +82,7 @@ class MeansCloseButton : public MeansButton
     Q_OBJECT
 public:
     explicit MeansCloseButton(QWidget *parent);
+    virtual ~MeansCloseButton();
 
     enum Mode{CloseMode,HideMode};
     Mode mode();
@@ -105,6 +112,7 @@ class MeansListWidget : public QListWidget
     Q_OBJECT
 public:
     explicit MeansListWidget(QWidget *parent = 0);
+    virtual ~MeansListWidget();
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);
@@ -129,6 +137,7 @@ class MeansTimer : public QTimer
 public:
     explicit MeansTimer(QObject *parent = 0);
     explicit MeansTimer(QString msg, QObject *parent = 0);
+    virtual ~MeansTimer();
 
     void set_message(QString msg);
     QString message();
